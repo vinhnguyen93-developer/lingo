@@ -36,7 +36,7 @@ export const unitsRelations = relations(units, ({ many, one }) => ({
     fields: [units.courseId],
     references: [courses.id],
   }),
-  lesson: many(lessons),
+  lessons: many(lessons),
 }));
 
 export const lessons = pgTable('lessons', {
@@ -53,7 +53,7 @@ export const lessonsRelations = relations(lessons, ({ one, many }) => ({
     fields: [lessons.unitId],
     references: [units.id],
   }),
-  challenge: many(challenges),
+  challenges: many(challenges),
 }));
 
 export const challengesEnum = pgEnum('type', ['SELECT', 'ASSIST']);
@@ -75,7 +75,7 @@ export const challengesRelations = relations(challenges, ({ one, many }) => ({
     fields: [challenges.lessonId],
     references: [lessons.id],
   }),
-  challengeOption: many(challengeOptions),
+  challengeOptions: many(challengeOptions),
   challengeProgress: many(challengeProgress),
 }));
 
